@@ -1,2 +1,2 @@
 ##GLAnimView
-![avatar](troop_deliver_gift.png)
+![avatar](troop_deliver_gift.gif)
