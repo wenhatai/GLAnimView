@@ -6,13 +6,10 @@ varying vec2 v_TexAlphaCoordinate;
 
 void main () {
     vec4 color = texture2D(texture, v_TexCoordinate);
-    float r = texture2D(texture, v_TexAlphaCoordinate).r;
-    float g = texture2D(texture, v_TexAlphaCoordinate).g;
-    float b = texture2D(texture, v_TexAlphaCoordinate).b;
-    float y = 0.257*r + 0.504*g + 0.098*b + 0.0625;
+    float alpha = texture2D(texture, v_TexAlphaCoordinate).g;
     gl_FragColor = color;
-    gl_FragColor.a = y;
-    gl_FragColor.r = gl_FragColor.r ;
-    gl_FragColor.g = gl_FragColor.g ;
-    gl_FragColor.b = gl_FragColor.b ;
+    gl_FragColor.a = gl_FragColor.a * alpha;
+    gl_FragColor.r = gl_FragColor.r * alpha;
+    gl_FragColor.g = gl_FragColor.g * alpha;
+    gl_FragColor.b = gl_FragColor.b * alpha;
 }
